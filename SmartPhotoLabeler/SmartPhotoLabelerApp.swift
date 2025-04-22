@@ -11,7 +11,11 @@ import SwiftUI
 struct SmartPhotoLabelerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if #available(iOS 17.0, *) {
+                ImageClassifierView()
+            } else {
+                Text("iOS 17 or higher required.")
+            }
         }
     }
 }
