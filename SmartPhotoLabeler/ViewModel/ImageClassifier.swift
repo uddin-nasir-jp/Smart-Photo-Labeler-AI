@@ -23,7 +23,6 @@ class ImageClassifier {
 
     private func loadModel() async {
         do {
-            let config = MLModelConfiguration()
             let fastViTModel = try FastViTMA36F16(configuration: MLModelConfiguration())
             self.model = try VNCoreMLModel(for: fastViTModel.model)
         } catch {
