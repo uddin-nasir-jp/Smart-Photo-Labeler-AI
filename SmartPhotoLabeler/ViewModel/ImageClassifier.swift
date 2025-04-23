@@ -7,6 +7,7 @@ import Vision
 import SwiftUI
 import Observation
 
+@MainActor
 @Observable
 class ImageClassifier {
     var classificationLabel: String = "Awaiting Image..."
@@ -36,7 +37,7 @@ class ImageClassifier {
             return
         }
 
-        guard let uiImage = await image.asUIImage(),
+        guard let uiImage = image.asUIImage(),
               let ciImage = CIImage(image: uiImage) else {
             classificationLabel = "Invalid image."
             return
